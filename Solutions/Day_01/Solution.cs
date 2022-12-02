@@ -2,9 +2,9 @@ namespace Solutions.Day_01;
 
 public static class Solution
 {
-    public static int GetResult(string input) => GetBiggest(GetConversion(input));
+    public static int GetResult(string input) => GetBiggestSum(GetConversions(input));
 
-    private static int GetBiggest(List<List<int>> listOfInventories)
+    private static int GetBiggestSum(List<List<int>> listOfInventories)
     {
         var candidate = 0;
         var results = new LinkedList<int>();
@@ -13,17 +13,16 @@ public static class Solution
         {
             candidate = 0;
 
-            if (listOfInventories[i] != null)
-                for (var j = 0; j < listOfInventories[i]!.Count; j++)
-                    candidate += listOfInventories[i]![j];
+            for (var j = 0; j < listOfInventories[i].Count; j++)
+                candidate += listOfInventories[i][j];
 
             results.AddLast(new LinkedListNode<int>(candidate));
         }
 
-        return results.OrderByDescending(x => x).First();
+        return results.OrderByDescending(sum => sum).First();
     }
 
-    private static List<List<int>> GetConversion(string input)
+    private static List<List<int>> GetConversions(string input)
     {
         var lines = input.Split("\n", StringSplitOptions.TrimEntries);
 
@@ -34,14 +33,15 @@ public static class Solution
         {
             inventories.Add(new List<int>());
 
-            for (int i = lastIndex; i < lines.Length; i++)
+            for (var i = lastIndex; i < lines.Length; i++)
             {
                 lastIndex++;
 
                 if (string.IsNullOrEmpty(lines[i]) || string.IsNullOrWhiteSpace(lines[i]))
                     break;
 
-                inventories[inventories.IndexOf(inventories.Last())].Add(Convert.ToInt32(lines[i]));
+                inventories[inventories.IndexOf(inventories.Last())]
+                    .Add(Convert.ToInt32(lines[i]));
             }
         }
 

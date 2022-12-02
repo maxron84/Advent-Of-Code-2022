@@ -19,6 +19,7 @@ public class UnitTest
 
     public static IEnumerable<object[]> GetTestData()
     {
+        // Case 1 from example
         var givenInput = """
             1000
             2000
