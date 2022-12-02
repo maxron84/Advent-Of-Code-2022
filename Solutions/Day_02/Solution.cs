@@ -4,7 +4,7 @@ public static class Solution
 {
     public static int GetWinnerResult(string input) => GetTotalResults(GetConversions(input)).Max();
 
-    private static int[] GetTotalResults(List<Hand> hands)
+    private static int[] GetTotalResults(List<Tuple<int, int>> hands)
     {
         int totalOwn = 0, totalOpponent = 0;
 
@@ -19,27 +19,26 @@ public static class Solution
         return new[] { totalOwn, totalOpponent };
     }
 
-    private static int[] GetHandResults(Hand hand)
+    private static int[] GetHandResults(Tuple<int, int> hand)
     {
-        if (hand.Own == hand.Opponent)
-        {
-            hand.Own += 3;
-            hand.Opponent += 3;
+        int own = hand.Item1, opponent = hand.Item2, difference = own - opponent;
 
-            return new[] { hand.Own, hand.Opponent };
+        if (difference == 0)
+        {
+            own += 3;
+            opponent += 3;
+
+            return new[] { own, opponent };
         }
 
-        if ((hand.Own == 1 && hand.Opponent == 3) || (hand.Own == 2 && hand.Opponent == 1) || (hand.Own == 3 && hand.Opponent == 2))
-            hand.Own += 6;
-        else
-            hand.Opponent += 6;
+        _ = difference == -2 || difference == 1 ? own += 6 : opponent += 6;
 
-        return new[] { hand.Own, hand.Opponent };
+        return new[] { own, opponent };
     }
 
-    private static List<Hand> GetConversions(string input)
+    private static List<Tuple<int, int>> GetConversions(string input)
     {
-        var hands = new List<Hand>();
+        var hands = new List<Tuple<int, int>>();
 
         var matrix = input
             .Split("\n".ToArray())
@@ -48,19 +47,13 @@ public static class Solution
 
         for (var i = 0; i < matrix.Length; i++)
         {
-            hands.Add(new Hand
-            {
-                Own = matrix[i].First() == "A" ? /*Rock*/ 1 : matrix[i].First() == "B" ? /*Paper*/ 2 : /*Scissors*/ 3,
-                Opponent = matrix[i].Last() == "X" ? /*Rock*/ 1 : matrix[i].Last() == "Y" ? /*Paper*/ 2 : /*Scissors*/ 3
-            });
+            hands.Add(Tuple.Create<int, int>
+            (
+                matrix[i].First() == "A" ? /*Rock*/ 1 : matrix[i].First() == "B" ? /*Paper*/ 2 : /*Scissors*/ 3,
+                matrix[i].Last() == "X" ? /*Rock*/ 1 : matrix[i].Last() == "Y" ? /*Paper*/ 2 : /*Scissors*/ 3
+            ));
         }
 
         return hands;
     }
-}
-
-internal record Hand
-{
-    public int Own { get; set; }
-    public int Opponent { get; set; }
 }
