@@ -23,9 +23,9 @@ public static class Solution
         return Tuple.Create<char[], char[]>(compartmentOne, compartmentTwo);
     }
 
-    private static int GetCommonPriority(Tuple<char[], char[]> opponents)
+    private static int GetCommonPriority(Tuple<char[], char[]> compartments)
     {
-        int priority = opponents.Item1.Intersect(opponents.Item2).FirstOrDefault();
+        int priority = compartments.Item1.Intersect(compartments.Item2).FirstOrDefault();
 
         return priority >= 96 ? priority - 96 : priority - 38;
     }
