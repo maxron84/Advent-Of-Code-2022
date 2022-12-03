@@ -15,15 +15,15 @@ public static class Solution
 
     private static List<string> GetAllLines(string input) => input.Split("\n", StringSplitOptions.TrimEntries).ToList();
 
-    private static Tuple<char[], char[]> GetCompartments(string line)
+    private static Tuple<string, string> GetCompartments(string line)
     {
-        var compartmentOne = line.Substring(0, line.Length / 2).ToCharArray();
-        var compartmentTwo = line.Substring(line.Length / 2, line.Length / 2).ToCharArray();
+        var compartmentOne = line.Substring(0, line.Length / 2);
+        var compartmentTwo = line.Substring(line.Length / 2, line.Length / 2);
 
-        return Tuple.Create<char[], char[]>(compartmentOne, compartmentTwo);
+        return Tuple.Create<string, string>(compartmentOne, compartmentTwo);
     }
 
-    private static int GetCommonPriority(Tuple<char[], char[]> compartments)
+    private static int GetCommonPriority(Tuple<string, string> compartments)
     {
         int priority = compartments.Item1.Intersect(compartments.Item2).FirstOrDefault();
 
