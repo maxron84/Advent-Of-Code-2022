@@ -2,9 +2,14 @@ namespace Solutions.Day_02;
 
 public static class Solution
 {
-    public static int GetWinnerResult(string input) => GetTotalResults(GetConversions(input)).Max();
+    public static int GetWinnerResult(string input)
+    {
+        var result = GetTotalResults(GetConversions(input));
 
-    private static int[] GetTotalResults(List<Tuple<int, int>> hands)
+        return Int32.Max(result.Item1, result.Item2);
+    }
+
+    private static Tuple<int, int> GetTotalResults(List<Tuple<int, int>> hands)
     {
         int totalOwn = 0, totalOpponent = 0;
 
@@ -12,14 +17,14 @@ public static class Solution
         {
             var handResults = GetHandResults(hand);
 
-            totalOwn += handResults.First();
-            totalOpponent += handResults.Last();
+            totalOwn += handResults.Item1;
+            totalOpponent += handResults.Item2;
         }
 
-        return new[] { totalOwn, totalOpponent };
+        return Tuple.Create<int, int>(totalOwn, totalOpponent);
     }
 
-    private static int[] GetHandResults(Tuple<int, int> hand)
+    private static Tuple<int, int> GetHandResults(Tuple<int, int> hand)
     {
         int own = hand.Item1, opponent = hand.Item2, difference = own - opponent;
 
@@ -28,12 +33,12 @@ public static class Solution
             own += 3;
             opponent += 3;
 
-            return new[] { own, opponent };
+            return Tuple.Create<int, int>(own, opponent);
         }
 
         _ = difference == -2 || difference == 1 ? own += 6 : opponent += 6;
 
-        return new[] { own, opponent };
+        return Tuple.Create<int, int>(own, opponent);
     }
 
     private static List<Tuple<int, int>> GetConversions(string input)
