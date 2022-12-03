@@ -27,6 +27,6 @@ public static class Solution
     {
         int priority = compartments.Item1.Intersect(compartments.Item2).FirstOrDefault();
 
-        return priority >= 96 ? priority - 96 : priority - 38;
+        return priority > 96 ? priority - 96 : priority - 38;
     }
 }
