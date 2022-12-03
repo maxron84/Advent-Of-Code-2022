@@ -2,8 +2,6 @@ namespace Solutions.Day_03;
 
 public static class Solution
 {
-    private static StringBuilder sb = new StringBuilder();
-
     public static int GetSum(string input)
     {
         var result = 0;
