@@ -4,12 +4,12 @@ public class UnitTest
 {
     [Theory]
     [MemberData(nameof(GetTestData))]
-    public Task Can_GetSum(string input, int expected)
+    public Task Can_GetSumOfCommonPriorities(string input, int expected)
     {
         // Given is MemberData
 
         // When
-        int actual = Solutions.Day_03.Solution.GetSum(input);
+        int actual = Solutions.Day_03.Solution.GetSumOfCommonPriorities(input);
 
         // Then
         Assert.Equal(expected, actual);

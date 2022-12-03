@@ -2,7 +2,7 @@ namespace Solutions.Day_03;
 
 public static class Solution
 {
-    public static int GetSum(string input)
+    public static int GetSumOfCommonPriorities(string input)
     {
         var result = 0;
         var lines = GetAllLines(input);
