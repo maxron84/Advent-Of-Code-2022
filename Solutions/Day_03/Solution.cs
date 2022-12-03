@@ -17,8 +17,8 @@ public static class Solution
 
     private static Tuple<char[], char[]> GetCompartments(string line)
     {
-        var compartmentOne = line.Substring(0, line.Length / 2).Trim().ToCharArray();
-        var compartmentTwo = line.Substring(line.Length / 2, line.Length / 2).Trim().ToCharArray();
+        var compartmentOne = line.Substring(0, line.Length / 2).ToCharArray();
+        var compartmentTwo = line.Substring(line.Length / 2, line.Length / 2).ToCharArray();
 
         return Tuple.Create<char[], char[]>(compartmentOne, compartmentTwo);
     }
