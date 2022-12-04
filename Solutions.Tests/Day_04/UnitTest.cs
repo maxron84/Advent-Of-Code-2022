@@ -13,7 +13,6 @@ public class UnitTest
         // Then
         Assert.Equal(expected, actual);
 
-
         return Task.CompletedTask;
     }
 
