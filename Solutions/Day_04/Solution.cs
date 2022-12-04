@@ -19,13 +19,7 @@ public static class Solution
         var left = Enumerable.Range(ranges.Item1.First(), ranges.Item1.Count());
         var right = Enumerable.Range(ranges.Item2.First(), ranges.Item2.Count());
 
-        if (GetCountOfWithins(left, right) == right.Count())
-            return true;
-
-        if (GetCountOfWithins(right, left) == left.Count())
-            return true;
-
-        return false;
+        return GetCountOfWithins(left, right) == right.Count() || (GetCountOfWithins(right, left) == left.Count());
     }
 
     private static int GetCountOfWithins(IEnumerable<int> container, IEnumerable<int> range)
