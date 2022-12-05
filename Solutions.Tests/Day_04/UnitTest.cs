@@ -8,7 +8,8 @@ public class UnitTest
     {
         // Given is MemberData
 
-        int actual = Solutions.Day_04.Solution.GetMatchCount(input);
+        // When
+        int actual = Solutions.Day_04.Solution.GetMatchCount(input); // XUnit Fehler beheben!
 
         // Then
         Assert.Equal(expected, actual);

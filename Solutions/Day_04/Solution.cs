@@ -39,7 +39,7 @@ public static class Solution
 
         var matrix = input
             .Split("\n".ToArray())
-                .Select(line => line.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                .Select(line => line.Split(',', StringSplitOptions.TrimEntries))
                 .ToArray();
 
         for (var i = 0; i < matrix.Length; i++)
