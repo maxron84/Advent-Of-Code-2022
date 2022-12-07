@@ -5,8 +5,8 @@ public static class Solution
     private static StringBuilder _stringBuilder = new();
     private static string _emptyLine = "\n\n";
     private static string _newLine = "\n";
-    private static List<Stack<string>> _crateStacks = new(); // Collection { Head = Topcrate, Body = All other crates, Tail = Cratestackindex }
-    private static List<List<int>> _codesForProcedures = new(); // Collection { [0] = popAmount, [1] = source, [2] = destination }
+    private static List<Stack<string>> _crateStacks = new();
+    private static List<List<int>> _codesForProcedures = new();
 
     public static string GetAllTopCrates(string input)
     {
