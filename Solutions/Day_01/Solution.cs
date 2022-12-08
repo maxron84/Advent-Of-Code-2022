@@ -24,7 +24,7 @@ public static class Solution
 
     private static List<List<int>> GetConversions(string input)
     {
-        var lines = input.Split("\n", StringSplitOptions.TrimEntries);
+        var lines = input.Split(TerminationBearer.NEWLINEHARDCODED, StringSplitOptions.TrimEntries);
 
         var inventories = new List<List<int>>();
         var lastIndex = 0;

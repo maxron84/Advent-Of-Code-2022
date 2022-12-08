@@ -38,7 +38,7 @@ public static class Solution
         var opponentsCollection = new List<Tuple<List<int>, List<int>>>();
 
         var matrix = input
-            .Split("\n".ToArray())
+            .Split(TerminationBearer.NEWLINEHARDCODED.ToArray())
                 .Select(line => line.Split(',', StringSplitOptions.TrimEntries))
                 .ToArray();
 

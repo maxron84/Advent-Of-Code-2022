@@ -3,17 +3,15 @@ namespace Solutions.Day_05;
 public static class Solution
 {
     private static StringBuilder _stringBuilder = new();
-    private static string _emptyLine = InputModifier.EMPTYLINEHARDCODED;
-    private static string _newLine = InputModifier.NEWLINEHARDCODED;
     private static List<Stack<string>> _crateStacks = new();
     private static List<List<int>> _codesForProcedures = new();
 
     public static string GetAllTopCrates(string input)
     {
         if (input.Contains("\r\n"))
-            input = input.Replace("\r\n", _newLine);
+            input = input.Replace("\r\n", TerminationBearer.NEWLINEHARDCODED);
 
-        var dataParts = GetDataParts(input, _emptyLine);
+        var dataParts = GetDataParts(input, TerminationBearer.EMPTYLINEHARDCODED);
 
         _crateStacks = GetAllCrateStacks(dataParts.First());
         _codesForProcedures = GetCodesForAllProcedures(dataParts.Last());
@@ -45,7 +43,7 @@ public static class Solution
     private static List<Stack<string>> GetAllCrateStacks(string dataPart)
     {
         var result = new List<Stack<string>>();
-        var lines = dataPart.Split(_newLine).ToArray();
+        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED).ToArray();
 
         Array.Reverse(lines);
 
@@ -89,7 +87,7 @@ public static class Solution
     {
         var result = new List<List<int>>();
 
-        var lines = dataPart.Split(_newLine.ToArray());
+        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED.ToArray());
 
         foreach (var line in lines)
         {
