@@ -25,9 +25,9 @@ public static class Solution
         return _stringBuilder.ToString();
     }
 
-    private static Task DoMoveCrates(List<Stack<string>> crates, List<int> code)
+    private static Task DoMoveCrates(IEnumerable<Stack<string>> crates, IEnumerable<int> code)
     {
-        int amount = code[0], source = code[1] - 1, destination = code[2] - 1;
+        int amount = code.ElementAt(0), source = code.ElementAt(1) - 1, destination = code.ElementAt(2) - 1;
 
         for (var i = 0; i < amount; i++)
         {
@@ -38,7 +38,7 @@ public static class Solution
         return Task.CompletedTask;
     }
 
-    private static string[] GetDataParts(string input, string separator) => input.Split(separator);
+    private static List<string> GetDataParts(string input, string separator) => input.Split(separator).ToList();
 
     private static List<Stack<string>> GetAllCrateStacks(string dataPart)
     {
@@ -65,7 +65,7 @@ public static class Solution
         return result;
     }
 
-    public static List<string> GetFormattedLines(string[] lines)
+    public static List<string> GetFormattedLines(IEnumerable<string> lines)
     {
         var result = new List<string>();
 
