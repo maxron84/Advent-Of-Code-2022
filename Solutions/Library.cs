@@ -1,6 +1,6 @@
 namespace Solutions;
 
-public static class MatrixOperator<T>
+internal static class MatrixOperator<T>
 {
     internal static T[] GetMatrixColumn(T[][] matrix, int column)
     {
@@ -15,4 +15,13 @@ public static class MatrixOperator<T>
             .Select(column => matrix[row][column])
             .ToArray();
     }
+}
+
+internal static class InputModifier
+{
+    // To rectify the silly issues with standard input on different machines...
+    internal const string NEWLINEHARDCODED = "\n";
+    internal static string NewlineSystem = Environment.NewLine;
+    internal const string EMPTYLINEHARDCODED = "\n\n";
+    internal static string[] EmptylineSystem = { Environment.NewLine, Environment.NewLine };
 }
