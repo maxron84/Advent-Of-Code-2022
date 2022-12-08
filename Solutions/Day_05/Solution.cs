@@ -3,13 +3,16 @@ namespace Solutions.Day_05;
 public static class Solution
 {
     private static StringBuilder _stringBuilder = new();
-    private static string _emptyLine = "\n\n";
-    private static string _newLine = "\n";
+    private static string _emptyLine = InputModifier.EMPTYLINEHARDCODED;
+    private static string _newLine = InputModifier.NEWLINEHARDCODED;
     private static List<Stack<string>> _crateStacks = new();
     private static List<List<int>> _codesForProcedures = new();
 
     public static string GetAllTopCrates(string input)
     {
+        if (input.Contains("\r\n"))
+            input = input.Replace("\r\n", _newLine);
+
         var dataParts = GetDataParts(input, _emptyLine);
 
         _crateStacks = GetAllCrateStacks(dataParts.First());

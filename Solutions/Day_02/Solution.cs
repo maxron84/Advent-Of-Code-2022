@@ -2,8 +2,13 @@ namespace Solutions.Day_02;
 
 public static class Solution
 {
+    private static string _newLine = InputModifier.NEWLINEHARDCODED;
+
     public static int GetWinnerResult(string input)
     {
+        if (input.Contains("\r\n"))
+            input = input.Replace("\r\n", _newLine);
+
         var result = GetTotalResults(GetConversions(input));
 
         return Int32.Max(result.Item1, result.Item2);
@@ -46,7 +51,7 @@ public static class Solution
         var hands = new List<Tuple<int, int>>();
 
         var matrix = input
-            .Split("\n".ToArray())
+            .Split(_newLine.ToArray())
                 .Select(line => line.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                 .ToArray();
 
