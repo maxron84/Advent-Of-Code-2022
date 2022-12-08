@@ -17,7 +17,7 @@ internal static class MatrixOperator<T>
     }
 }
 
-internal static class InputModifier
+internal static class TerminationBearer
 {
     // To rectify the silly issues with standard input on different machines...
     internal const string NEWLINEHARDCODED = "\n";
