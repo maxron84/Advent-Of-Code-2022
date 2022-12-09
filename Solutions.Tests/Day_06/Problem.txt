@@ -9,12 +9,14 @@ he convinced the other Elves that it would be okay to give you their one malfunc
 
 As if inspired by comedic timing, the device emits a few colorful sparks.
 
-To be able to communicate with the Elves, the device needs to lock on to their signal. The signal is a series of seemingly-random characters that the device receives one at a time.
+To be able to communicate with the Elves, the device needs to lock on to their signal.
+The signal is a series of seemingly-random characters that the device receives one at a time.
 
 To fix the communication system, you need to add a subroutine to the device that detects a start-of-packet marker in the datastream.
 In the protocol being used by the Elves, the start of a packet is indicated by a sequence of four characters that are all different.
 
-The device will send your subroutine a datastream buffer (your puzzle input); your subroutine needs to identify the first position where the four most recently received characters were all different.
+The device will send your subroutine a datastream buffer (your puzzle input); your subroutine needs to identify the first position
+where the four most recently received characters were all different.
 Specifically, it needs to report the number of characters from the beginning of the buffer to the end of the first such four-character marker.
 
 For example, suppose you receive the following datastream buffer:
