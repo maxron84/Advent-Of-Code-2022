@@ -3,14 +3,15 @@ namespace Solutions.Day_05;
 public static class Solution
 {
     private static StringBuilder _stringBuilder = new();
-    private static string _emptyLine = "\n\n";
-    private static string _newLine = "\n";
     private static List<Stack<string>> _crateStacks = new();
     private static List<List<int>> _codesForProcedures = new();
 
     public static string GetAllTopCrates(string input)
     {
-        var dataParts = GetDataParts(input, _emptyLine);
+        if (input.Contains("\r\n"))
+            input = input.Replace("\r\n", TerminationBearer.NEWLINEHARDCODED);
+
+        var dataParts = GetDataParts(input, TerminationBearer.EMPTYLINEHARDCODED);
 
         _crateStacks = GetAllCrateStacks(dataParts.First());
         _codesForProcedures = GetCodesForAllProcedures(dataParts.Last());
@@ -24,9 +25,9 @@ public static class Solution
         return _stringBuilder.ToString();
     }
 
-    private static Task DoMoveCrates(List<Stack<string>> crates, List<int> code)
+    private static Task DoMoveCrates(IEnumerable<Stack<string>> crates, IEnumerable<int> code)
     {
-        int amount = code[0], source = code[1] - 1, destination = code[2] - 1;
+        int amount = code.ElementAt(0), source = code.ElementAt(1) - 1, destination = code.ElementAt(2) - 1;
 
         for (var i = 0; i < amount; i++)
         {
@@ -37,12 +38,12 @@ public static class Solution
         return Task.CompletedTask;
     }
 
-    private static string[] GetDataParts(string input, string separator) => input.Split(separator);
+    private static List<string> GetDataParts(string input, string separator) => input.Split(separator).ToList();
 
     private static List<Stack<string>> GetAllCrateStacks(string dataPart)
     {
         var result = new List<Stack<string>>();
-        var lines = dataPart.Split(_newLine).ToArray();
+        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED).ToArray();
 
         Array.Reverse(lines);
 
@@ -64,7 +65,7 @@ public static class Solution
         return result;
     }
 
-    public static List<string> GetFormattedLines(string[] lines)
+    public static List<string> GetFormattedLines(IEnumerable<string> lines)
     {
         var result = new List<string>();
 
@@ -86,7 +87,7 @@ public static class Solution
     {
         var result = new List<List<int>>();
 
-        var lines = dataPart.Split(_newLine.ToArray());
+        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED.ToArray());
 
         foreach (var line in lines)
         {
