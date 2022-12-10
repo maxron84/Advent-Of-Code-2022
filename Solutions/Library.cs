@@ -16,12 +16,3 @@ internal static class MatrixOperator<T>
             .ToArray();
     }
 }
-
-internal static class TerminationBearer
-{
-    // To rectify the silly issues with standard input on different machines...
-    internal const string NEWLINEHARDCODED = "\n";
-    internal static string NewlineSystem = Environment.NewLine;
-    internal const string EMPTYLINEHARDCODED = "\n\n";
-    internal static string[] EmptylineSystem = { Environment.NewLine, Environment.NewLine };
-}
