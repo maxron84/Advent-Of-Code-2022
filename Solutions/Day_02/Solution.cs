@@ -4,9 +4,6 @@ public static class Solution
 {
     public static int GetWinnerResult(string input)
     {
-        if (input.Contains("\r\n"))
-            input = input.Replace("\r\n", TerminationBearer.NEWLINEHARDCODED);
-
         var result = GetTotalResults(GetConversions(input));
 
         return Int32.Max(result.Item1, result.Item2);
@@ -49,7 +46,7 @@ public static class Solution
         var hands = new List<Tuple<int, int>>();
 
         var matrix = input
-            .Split(TerminationBearer.NEWLINEHARDCODED.ToArray())
+            .Split(Environment.NewLine).ToArray()
                 .Select(line => line.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                 .ToArray();
 

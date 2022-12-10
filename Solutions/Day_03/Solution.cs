@@ -13,7 +13,7 @@ public static class Solution
         return result;
     }
 
-    private static List<string> GetAllLines(string input) => input.Split(TerminationBearer.NEWLINEHARDCODED, StringSplitOptions.TrimEntries).ToList();
+    private static List<string> GetAllLines(string input) => input.Split(Environment.NewLine, StringSplitOptions.TrimEntries).ToList();
 
     private static Tuple<string, string> GetCompartments(string line)
     {

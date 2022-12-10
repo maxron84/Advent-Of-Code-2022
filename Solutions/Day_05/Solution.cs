@@ -8,10 +8,10 @@ public static class Solution
 
     public static string GetAllTopCrates(string input)
     {
-        if (input.Contains("\r\n"))
-            input = input.Replace("\r\n", TerminationBearer.NEWLINEHARDCODED);
+        if (input.Contains("\n\n"))
+            input.Replace("\n\n", "\r\n\r\n"); // Hardcoded because of Linefeeder Issues with my IDE (So far, only occuring in this particular solution ...)
 
-        var dataParts = GetDataParts(input, TerminationBearer.EMPTYLINEHARDCODED);
+        var dataParts = GetDataParts(input, "\r\n\r\n");
 
         _crateStacks = GetAllCrateStacks(dataParts.First());
         _codesForProcedures = GetCodesForAllProcedures(dataParts.Last());
@@ -43,7 +43,7 @@ public static class Solution
     private static List<Stack<string>> GetAllCrateStacks(string dataPart)
     {
         var result = new List<Stack<string>>();
-        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED).ToArray();
+        var lines = dataPart.Split(Environment.NewLine).ToArray();
 
         Array.Reverse(lines);
 
@@ -65,7 +65,7 @@ public static class Solution
         return result;
     }
 
-    public static List<string> GetFormattedLines(IEnumerable<string> lines)
+    private static List<string> GetFormattedLines(IEnumerable<string> lines)
     {
         var result = new List<string>();
 
@@ -87,7 +87,7 @@ public static class Solution
     {
         var result = new List<List<int>>();
 
-        var lines = dataPart.Split(TerminationBearer.NEWLINEHARDCODED.ToArray());
+        var lines = dataPart.Split(Environment.NewLine).ToArray();
 
         foreach (var line in lines)
         {
