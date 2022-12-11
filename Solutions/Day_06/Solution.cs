@@ -25,10 +25,14 @@ public static class Solution
         return -1;
     }
 
-    // Solution generated with ChatGPT using the following chat input, complexity is O(n)
-    //Please create a method in C# which receives a large string containing random characters and a desired substring length as parameter.
-    //Get the first occurance of a substring of the input string containing only distinct characters.
-    //Return the position of the character right after the matching substring as an integer.
+    // Solution generated with ChatGPT using the following chat input:
+    /*
+        "Please create a method in C# which receives a large string containing random characters and a desired substring length as parameter.
+        Get the first occurance of a substring of the input string containing only distinct characters.
+        Return the position of the character right after the matching substring as an integer."
+    */
+    // Complexity is O(n)
+
     public static int GetPositionOfCharacterAfterFirstMarker_ChatGPT(string input, int substringLength)
     {
         for (int i = 0; i < input.Length - substringLength + 1; i++)
