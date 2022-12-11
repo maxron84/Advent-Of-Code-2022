@@ -4,8 +4,8 @@ https://adventofcode.com/
 Featuring optimized code by Open AI ChatGPT in following Solutions so far:
 - Day 6
 
-Each in this repository used ChatGPT code has been integrated into respective Testframework and works!
-Check source files comments to see what exactly I typed as input in the chat.
+Each in this repository used ChatGPT code has been integrated into respective Testframework and works!\n
+Check source files comments to see what exactly I typed as input in the chat.\n
 
-What is ChatGPT: https://openai.com/blog/chatgpt/ | https://help.openai.com/en/
+What is ChatGPT: https://openai.com/blog/chatgpt/ | https://help.openai.com/en/\n
 Sign up and try it yourself: https://chat.openai.com/chat
