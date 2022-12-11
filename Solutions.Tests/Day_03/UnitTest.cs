@@ -9,7 +9,7 @@ public class UnitTest
         // Given is MemberData
 
         // When
-        int actual = Solutions.Day_03.Solution.GetSumOfCommonPriorities(input);
+        var actual = Solutions.Day_03.Solution.GetSumOfCommonPriorities(input);
 
         // Then
         Assert.Equal(expected, actual);
@@ -31,7 +31,5 @@ public class UnitTest
         var expected = 157;
 
         yield return new object[] { input, expected };
-
-        // Case 2 more than 1 common item & odd length
     }
 }

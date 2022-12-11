@@ -9,7 +9,7 @@ public class UnitTest
         // Given is MemberData
 
         // When
-        int actual = Solutions.Day_01.Solution.GetResult(input);
+        var actual = Solutions.Day_01.Solution.GetResult(input);
 
         // Then
         Assert.Equal(expected, actual);

@@ -10,6 +10,7 @@ public class UnitTest
 
         // When
         var actual = Solutions.Day_05.Solution.GetAllTopCrates(input);
+
         // Then
         Assert.Equal(expected, actual);
 

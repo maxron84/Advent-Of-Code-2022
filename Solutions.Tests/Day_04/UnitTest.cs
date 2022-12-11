@@ -9,7 +9,7 @@ public class UnitTest
         // Given is MemberData
 
         // When
-        int actual = Solutions.Day_04.Solution.GetMatchCount(input);
+        var actual = Solutions.Day_04.Solution.GetMatchCount(input);
 
         // Then
         Assert.Equal(expected, actual);
