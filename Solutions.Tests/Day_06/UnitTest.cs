@@ -9,8 +9,12 @@ public class UnitTest
         // Given is MemberData
 
         // When
-        var actual = Solutions.Day_06.Solution.GetPositionOfCharacterAfterFirstMarker(input, subpartLength);
+        var actual = Solutions.Day_06.Solution.GetPositionOfCharacterAfterFirstMarker(input, subpartLength); // Own solution
+        // Then
+        Assert.Equal(expected, actual);
 
+        // When
+        actual = Solutions.Day_06.Solution.GetPositionOfCharacterAfterFirstMarker_ChatGPT(input, subpartLength); // ChatGPT solution
         // Then
         Assert.Equal(expected, actual);
 
@@ -60,6 +64,7 @@ public class UnitTest
 
         // When
         var actual = Solutions.Day_06.Solution.GetPositionOfCharacterAfterFirstMarker(input, subpartLength);
+        actual = Solutions.Day_06.Solution.GetPositionOfCharacterAfterFirstMarker_ChatGPT(input, subpartLength); // ChatGPT matches the outcome of my solution!
 
         // Then
         // Save returnvalues for comparison with dataprovider here...
