@@ -56,3 +56,12 @@ public static class Solution_ChatGPT
         return result;
     }
 }
+// Generated explanation to this optimization:
+/*
+    In the original code, the GetAllLines method is used to split the input string into lines,
+    but this can be done directly in the GetSumOfCommonPriorities method.
+    Also, the GetCompartments method is used to split each line into two compartments,
+    but this can also be done directly in the GetSumOfCommonPriorities method.
+    Finally, the GetCommonPriority method is used to calculate the common priority of the two compartments,
+    but this can also be done directly in the GetSumOfCommonPriorities method.
+*/
