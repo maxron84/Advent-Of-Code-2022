@@ -9,8 +9,12 @@ public class UnitTest
         // Given is MemberData
 
         // When
-        var actual = Solutions.Day_03.Solution.GetSumOfCommonPriorities(input);
+        var actual = Solutions.Day_03.Solution.GetSumOfCommonPriorities(input); // My Class written by hand
+        // Then
+        Assert.Equal(expected, actual);
 
+        // When
+        actual = Solutions.Day_03.Solution_ChatGPT.GetSumOfCommonPriorities(input); // My Class optimized by ChatGPT
         // Then
         Assert.Equal(expected, actual);
 
