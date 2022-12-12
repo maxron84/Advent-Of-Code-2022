@@ -1,5 +1,7 @@
 namespace Solutions.Day_03;
 
+// FEATURING COMPARISON BETWEEN OWN & CHATGPT SOLUTION ON CLASS LEVEL!
+
 // Solution out of my head
 public static class Solution
 {
