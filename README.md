@@ -2,6 +2,7 @@
 https://adventofcode.com/
 
 Featuring optimized code by Open AI ChatGPT in following Solutions so far:
+- Day 3
 - Day 6
 
 Each in this repository used ChatGPT code has been integrated into respective Testframework and works!
